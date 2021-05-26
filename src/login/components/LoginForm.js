@@ -16,7 +16,7 @@ export const LoginForm = () => {
                     <label htmlFor="passwordInput">Password</label>
                     <input {...register("password")} className="form-control" type="password" id="passwordInput" />
                 </div>
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-primary">Log in</button>
             </form>
             <button className="btn btn-success">Sign up</button>
         </div>
