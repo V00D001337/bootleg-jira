@@ -1,9 +1,11 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useHistory } from 'react-router'
 
 export const LoginForm = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
+    const { push } = useHistory()
 
     return (
         <div>
@@ -18,7 +20,7 @@ export const LoginForm = () => {
                 </div>
                 <button type="submit" className="btn btn-primary">Log in</button>
             </form>
-            <button className="btn btn-success">Sign up</button>
+            <button className="btn btn-success" onClick={() => push('/register')}>Sign up</button>
         </div>
     )
 }
