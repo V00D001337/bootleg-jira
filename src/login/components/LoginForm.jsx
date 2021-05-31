@@ -14,7 +14,9 @@ export const LoginForm = () => {
 
     const login = (data) => {
         dispatch(usersLogin(data))
+        push('/mainPage')
     }
+
     useEffect(() => {
         fetch("http://localhost:8000/users")
             .then(res => { return res.json() })
