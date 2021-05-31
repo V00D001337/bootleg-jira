@@ -1,6 +1,6 @@
 const initialState = {
     users: [],
-    loggedUser: {}
+    loggedUser: {},
 }
 
 const reducer = (state = initialState, action) => {
@@ -13,19 +13,17 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state, users: [...state.users, action.payload.user]
             }
-        case 'USERS_LOG':
+        case 'USERS_LOGIN':
             {
                 const user = action.payload.user
                 const match = state.users.find(u => u.email === user.email && u.password === user.password)
-                if (match){
-                    console.log("ye");
-                    return { ...state, loggedUser: match }
+                if (match) {
+                    return { ...state, message: '', loggedUser: match }
                 }
-                else return {
-                    state
+                else {
+                    return state
                 }
             }
-
         default: return state
     }
 }
@@ -39,6 +37,12 @@ export const usersLoad = (users) => {
     return ({ type: 'USERS_LOAD', payload: { users } })
 }
 
-export const usersLog = (user) => {
-    return ({ type: 'USERS_LOG', payload: { user } })
+export const usersLogin = (user) => {
+    return ({ type: 'USERS_LOGIN', payload: { user } })
 }
+
+
+
+//Selectors
+
+export const selectLoggedUser = (state) => state.users.loggedUser

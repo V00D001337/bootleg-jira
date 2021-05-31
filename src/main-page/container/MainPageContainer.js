@@ -1,11 +1,14 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useDispatch, useSelector, useStore } from 'react-redux'
+import { selectLoggedUser } from '../../core/reducers/UsersReducer';
+import { useHistory } from 'react-router'
 
 export const MainPageContainer = () => {
-    const user = useSelector((state) => state.users.loggedUser)
+    const { push } = useHistory()
+    const user = useSelector(selectLoggedUser)
     return (
         <div>
-            {'Hello!' + user.name}
+            
         </div>
     )
 }

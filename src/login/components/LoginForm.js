@@ -1,23 +1,24 @@
-import React, {useEffect} from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router'
-import { usersLoad, usersLog } from '../../core/reducers/UsersReducer';
+import { usersLoad, usersLogin, selectLoggedUser } from '../../core/reducers/UsersReducer';
 
 
 
 export const LoginForm = () => {
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
-        dispatch(usersLog(data)); 
-        push('/mainPage')};
+    const onSubmit = data => login(data)
     const { push } = useHistory()
 
+    const login = (data) => {
+        dispatch(usersLogin(data))
+    }
     useEffect(() => {
         fetch("http://localhost:8000/users")
-        .then(res => {return res.json()})
-        .then(res => dispatch(usersLoad(res)))
+            .then(res => { return res.json() })
+            .then(res => dispatch(usersLoad(res)))
     }, [])
 
     return (
