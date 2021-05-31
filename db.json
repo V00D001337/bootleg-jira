@@ -11,6 +11,24 @@
       "name": "yeet",
       "email": "asd@asd.as",
       "password": "asdsadasd1"
+    },
+    {
+      "id": "392432777",
+      "name": "asd",
+      "email": "asd@asd.asd",
+      "password": "asd123asd"
+    },
+    {
+      "id": "542946100",
+      "name": "asd",
+      "email": "asd@asd.bs",
+      "password": "asdasd123"
+    },
+    {
+      "id": "471090812",
+      "name": "asdsadsa",
+      "email": "tre@tre.te",
+      "password": "asdasd123"
     }
   ],
   "tasks": [

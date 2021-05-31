@@ -8,3 +8,7 @@ export const newUser = (user) => {
         password: user.password
     })
 }
+
+export const fetchUsers = () => {
+    return axios.get('http://localhost:8000/users').then(res => res.data)
+}

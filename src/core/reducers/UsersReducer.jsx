@@ -1,6 +1,7 @@
 const initialState = {
     users: [],
-    loggedUser: {},
+    loggedUser: undefined,
+    message: ''
 }
 
 const reducer = (state = initialState, action) => {
@@ -11,7 +12,7 @@ const reducer = (state = initialState, action) => {
             }
         case 'USERS_NEW':
             return {
-                ...state, users: [...state.users, action.payload.user]
+                ...state, users: [...state.users, action.payload.user], loggedUser: action.payload.user
             }
         case 'USERS_LOGIN':
             {
@@ -21,7 +22,7 @@ const reducer = (state = initialState, action) => {
                     return { ...state, message: '', loggedUser: match }
                 }
                 else {
-                    return state
+                    return { ...state, message: 'Login Failed'}
                 }
             }
         default: return state
@@ -46,3 +47,4 @@ export const usersLogin = (user) => {
 //Selectors
 
 export const selectLoggedUser = (state) => state.users.loggedUser
+export const selectLoginMessage = (state) => state.users.message

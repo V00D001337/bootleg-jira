@@ -2,11 +2,24 @@ import React, {useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { newUser } from '../../core/hooks/useUsers';
+import { usersNew, usersLoad } from '../../core/reducers/UsersReducer';
+import { useHistory } from 'react-router'
+import { fetchUsers } from '../../core/hooks/useUsers';
 
 export const RegisterForm = () => {
     const dispatch = useDispatch()
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => newUser(data);
+    const { push } = useHistory()
+    const onSubmit = data => {
+        newUser(data)
+        dispatch(usersNew(data))
+        push('/mainPage')
+    };
+
+    useEffect(() => {
+        fetchUsers()
+            .then(res => dispatch(usersLoad(res)))
+    }, [])
     
     return (
         <div>
