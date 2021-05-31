@@ -16,9 +16,10 @@ const reducer = (state = initialState, action) => {
         case 'USERS_LOG':
             {
                 const user = action.payload.user
-                if (state.users.filter(u => u.email === user.email).length > 0 &&
-                    state.users.filter(u => u.password === user.password).length > 0) {
-                    return { ...state, loggedUser: action.payload.user }
+                const match = state.users.find(u => u.email === user.email && u.password === user.password)
+                if (match){
+                    console.log("ye");
+                    return { ...state, loggedUser: match }
                 }
                 else return {
                     state

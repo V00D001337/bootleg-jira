@@ -2,14 +2,16 @@ import React, {useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router'
-import { usersLoad } from '../../core/reducers/UsersReducer';
+import { usersLoad, usersLog } from '../../core/reducers/UsersReducer';
 
 
 
 export const LoginForm = () => {
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        dispatch(usersLog(data)); 
+        push('/mainPage')};
     const { push } = useHistory()
 
     useEffect(() => {

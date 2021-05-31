@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router';
 import './App.css';
 import { LoginContainer } from './login/containers/LoginContainer';
 import { RegisterContainer } from './register/container/RegisterContainer';
+import { MainPageContainer } from './main-page/container/MainPageContainer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
               <Redirect path="/" exact={true} to="/login" />
               <Route path="/login" component={LoginContainer} />
               <Route path="/register" component={RegisterContainer} />
+              <Route path="/mainPage" component={MainPageContainer} />
               <Route path="*" render={() => <h1>Page Not Found</h1>} />
             </Switch>
           </div>
