@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
+import { newUser } from '../../core/hooks/useUsers';
 
 export const RegisterForm = () => {
+    const dispatch = useDispatch()
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-
+    const onSubmit = data => newUser(data);
+    
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -29,7 +32,7 @@ export const RegisterForm = () => {
                         }
                     })}
                         className="form-control" type="text" id="emailInput" />
-                        {errors.email && <small className="text-danger">
+                    {errors.email && <small className="text-danger">
                         {errors.email.message}
                     </small>
                     }
