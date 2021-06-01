@@ -7,24 +7,6 @@
       "password": "pa55word"
     },
     {
-      "id": "-1067722855",
-      "name": "yeet",
-      "email": "asd@asd.as",
-      "password": "asdsadasd1"
-    },
-    {
-      "id": "392432777",
-      "name": "asd",
-      "email": "asd@asd.asd",
-      "password": "asd123asd"
-    },
-    {
-      "id": "542946100",
-      "name": "asd",
-      "email": "asd@asd.bs",
-      "password": "asdasd123"
-    },
-    {
       "id": "471090812",
       "name": "asdsadsa",
       "email": "tre@tre.te",
@@ -40,6 +22,15 @@
       "sprintId": "987",
       "status": "inprogres",
       "createdAt": 1621963631530
+    },
+    {
+      "id": "4234",
+      "title": "tego nie powinno tu byc przy id",
+      "description": "my task",
+      "userId": "234",
+      "sprintId": "987",
+      "status": "inprogres",
+      "createdAt": 16219636315358
     }
   ],
   "comments": [
