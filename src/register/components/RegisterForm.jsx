@@ -5,6 +5,7 @@ import { newUser } from '../../core/hooks/useUsers';
 import { usersNew, usersLoad } from '../../core/reducers/UsersReducer';
 import { useHistory } from 'react-router'
 import { fetchUsers } from '../../core/hooks/useUsers';
+import styled from 'styled-components'
 
 export const RegisterForm = () => {
     const dispatch = useDispatch()
@@ -22,7 +23,7 @@ export const RegisterForm = () => {
     }, [])
     
     return (
-        <div>
+        <FormContainer>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <label htmlFor="nameInput">Name</label>
@@ -68,8 +69,16 @@ export const RegisterForm = () => {
                     </small>
                     }
                 </div>
-                <button type="submit" className="btn btn-primary">Register</button>
+                <button type="submit" style={{ width: "160px", marginTop: "10px" }} className="btn btn-lg btn-primary btn-block">Register</button>
             </form>
-        </div>
+        </FormContainer>
     )
 }
+
+const FormContainer = styled.div`
+    width: 400px;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+`;

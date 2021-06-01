@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router'
 import { usersLoad, usersLogin, selectLoggedUser, selectLoginMessage } from '../../core/reducers/UsersReducer';
 import { fetchUsers } from '../../core/hooks/useUsers';
+import styled from 'styled-components'
 
 
 
@@ -20,7 +21,7 @@ export const LoginForm = () => {
     }
 
     useEffect(() => {
-        if (loggedUser !== undefined){
+        if (loggedUser !== undefined) {
             push('/mainPage')
         } else {
             return
@@ -33,11 +34,11 @@ export const LoginForm = () => {
     }, [])
 
     return (
-        <div>
+        <FormContainer>
             <small className="text-danger">
                 {loginMessage}
             </small>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className="form-signin" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <label htmlFor="emailInput">Email address</label>
                     <input {...register("email")} className="form-control" type="text" id="emailInput" />
@@ -46,9 +47,17 @@ export const LoginForm = () => {
                     <label htmlFor="passwordInput">Password</label>
                     <input {...register("password")} className="form-control" type="password" id="passwordInput" />
                 </div>
-                <button type="submit" className="btn btn-primary">Log in</button>
+                <button type="submit" style={{ width: "160px", marginTop: "10px" }} className="btn btn-lg btn-primary btn-block">Log in</button>
             </form>
-            <button className="btn btn-success" onClick={() => push('/register')}>Sign up</button>
-        </div>
+            <button className="btn btn-lg btn-light btn-block" style={{ width: "160px", marginTop: "10px" }} onClick={() => push('/register')}>Sign up</button>
+        </FormContainer>
     )
 }
+
+const FormContainer = styled.div`
+    width: 400px;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+`;
