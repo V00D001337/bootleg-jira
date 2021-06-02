@@ -9,12 +9,16 @@ export const CommentsList = (props) => {
                         <tr>
                             <th>Content</th>
                             <th>Created</th>
+                            <th>Author</th>
+                            <th>Related Task</th>
                         </tr>
                     </thead>
                     <tbody>
                         {props.comments.map(c => <tr key={c.id}>
                             <td>{c.content}</td>
                             <td>{(new Date(c.createdAt)).toLocaleDateString()}</td>
+                            <td>{c.userId.name}</td>
+                            <td>{c.taskId.title}</td>
                         </tr>)}
                     </tbody>
                 </table>

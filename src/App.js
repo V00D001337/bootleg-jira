@@ -21,12 +21,12 @@ function App() {
               <Redirect path="/" exact={true} to="/login" />
               <Route path="/login" component={LoginContainer} />
               <Route path="/register" component={RegisterContainer} />
-              <div>
+              <>
                 <NavBar />
                 <Route path="/mainPage" component={MainPageContainer} />
                 <Route path="/kanban" component={KanbanView} />
                 <Route path="/users" component={UsersContainer} />
-              </div>
+              </>
             </Switch>
           </div>
         </div>
