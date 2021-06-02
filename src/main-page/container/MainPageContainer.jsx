@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector, useStore } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectLoggedUser } from '../../core/reducers/UsersReducer';
 import { selectTasks, tasksLoadByUserIdStart, tasksLoad20NewestStart, selectUsersTasks } from '../../core/reducers/TasksReducer'
 import { commentsLoad20NewestStart, selectComments } from '../../core/reducers/CommentsReducer'
 import { useHistory } from 'react-router'
-import { NavBar } from '../components/NavBar';
 import { TasksList } from '../../tasks/components/TasksList'
 import { CommentsList } from '../../comments/components/CommentsList'
 
@@ -24,7 +23,6 @@ export const MainPageContainer = () => {
 
     return (
         <div>
-            <NavBar />
             <div className="container">
                 <h1>{'Witaj ' + user.name}</h1>
                 <div className="row">
@@ -38,7 +36,7 @@ export const MainPageContainer = () => {
                     </div>
                     <div className="col-sm">
                         <h4>Newest Comments</h4>
-                        {<CommentsList comments={comments}/>}
+                        {<CommentsList comments={comments} />}
                     </div>
                 </div>
             </div>

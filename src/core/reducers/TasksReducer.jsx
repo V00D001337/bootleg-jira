@@ -65,3 +65,7 @@ export const tasksLoadByUserIdSuccess = (usersTasks) => {
 
 export const selectTasks = (state) => state.tasks.tasks
 export const selectUsersTasks = (state) => state.tasks.usersTasks
+export const selectTasksNew = (state) => state.tasks.tasks.filter(t => t.status === 'new')
+export const selectTasksInProgress = (state) => state.tasks.tasks.filter(t => t.status === 'inprogress')
+export const selectTasksReview = (state) => state.tasks.tasks.filter(t => t.status === 'review')
+export const selectTasksDone = (state) => state.tasks.tasks.filter(t => t.status === 'done')

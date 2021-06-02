@@ -20,7 +20,7 @@
       "description": "my task",
       "userId": "123",
       "sprintId": "987",
-      "status": "inprogres",
+      "status": "inprogress",
       "createdAt": 1621963631530
     },
     {
@@ -29,7 +29,25 @@
       "description": "my task",
       "userId": "234",
       "sprintId": "987",
-      "status": "inprogres",
+      "status": "new",
+      "createdAt": 	1622573319000
+    },
+    {
+      "id": "423445",
+      "title": "tego nie powinno tu byc przy id",
+      "description": "my task",
+      "userId": "234",
+      "sprintId": "987",
+      "status": "review",
+      "createdAt": 	1622573319000
+    },
+    {
+      "id": "423423",
+      "title": "tego nie powinno tu byc przy id",
+      "description": "my task",
+      "userId": "234",
+      "sprintId": "987",
+      "status": "done",
       "createdAt": 	1622573319000
     }
   ],

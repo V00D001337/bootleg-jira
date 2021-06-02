@@ -4,6 +4,9 @@ import './App.css';
 import { LoginContainer } from './login/containers/LoginContainer';
 import { RegisterContainer } from './register/container/RegisterContainer';
 import { MainPageContainer } from './main-page/container/MainPageContainer';
+import { NavBar } from './core/components/NavBar';
+import {KanbanView} from './kanban/components/KanbanView'
+
 
 function App() {
   return (
@@ -16,8 +19,11 @@ function App() {
               <Redirect path="/" exact={true} to="/login" />
               <Route path="/login" component={LoginContainer} />
               <Route path="/register" component={RegisterContainer} />
-              <Route path="/mainPage" component={MainPageContainer} />
-              <Route path="*" render={() => <h1>Page Not Found</h1>} />
+              <div>
+                <NavBar />
+                <Route path="/mainPage" component={MainPageContainer} />
+                <Route path="/kanban" component={KanbanView}/>
+              </div>
             </Switch>
           </div>
         </div>

@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {NavLink} from 'react-router-dom'
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 export const NavBar = () => {
     const [collapsed, setCollapsed] = useState(true)
@@ -8,7 +8,7 @@ export const NavBar = () => {
             <nav className="navbar navbar-expand-md navbar-dark bg-dark mb-3">
                 <div className="container">
 
-                    <a className="navbar-brand" href="#">Ściernisko</a>
+                    <a className="navbar-brand">Ściernisko</a>
 
                     <button className="navbar-toggler" type="button" onClick={() => setCollapsed(prev => !prev)}
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,13 +19,16 @@ export const NavBar = () => {
                         <ul className="navbar-nav">
 
                             <li className="nav-item">
+                                <NavLink className="nav-link" to="/mainPage" activeClassName="active">Main Page</NavLink>
+                            </li>
+                            <li className="nav-item">
                                 <NavLink className="nav-link" to="/users" activeClassName="active">Users</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/search">Tasks</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/tracks">Kanban</NavLink>
+                                <NavLink className="nav-link" to="/kanban">Kanban</NavLink>
                             </li>
                         </ul>
                     </div>
