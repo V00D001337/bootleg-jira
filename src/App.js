@@ -5,7 +5,9 @@ import { LoginContainer } from './login/containers/LoginContainer';
 import { RegisterContainer } from './register/container/RegisterContainer';
 import { MainPageContainer } from './main-page/container/MainPageContainer';
 import { NavBar } from './core/components/NavBar';
-import {KanbanView} from './kanban/components/KanbanView'
+import { KanbanView } from './kanban/components/KanbanView'
+import { UsersContainer } from './users/containers/UsersContainer'
+
 
 
 function App() {
@@ -22,7 +24,8 @@ function App() {
               <div>
                 <NavBar />
                 <Route path="/mainPage" component={MainPageContainer} />
-                <Route path="/kanban" component={KanbanView}/>
+                <Route path="/kanban" component={KanbanView} />
+                <Route path="/users" component={UsersContainer} />
               </div>
             </Switch>
           </div>

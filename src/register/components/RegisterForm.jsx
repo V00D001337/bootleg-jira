@@ -2,9 +2,8 @@ import React, {useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { newUser } from '../../core/hooks/useUsers';
-import { usersNew, usersLoad } from '../../core/reducers/UsersReducer';
+import { usersNew, usersLoadStart } from '../../core/reducers/UsersReducer';
 import { useHistory } from 'react-router'
-import { fetchUsers } from '../../core/hooks/useUsers';
 import styled from 'styled-components'
 
 export const RegisterForm = () => {
@@ -18,8 +17,7 @@ export const RegisterForm = () => {
     };
 
     useEffect(() => {
-        fetchUsers()
-            .then(res => dispatch(usersLoad(res)))
+        dispatch(usersLoadStart())
     }, [])
     
     return (

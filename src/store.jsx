@@ -5,6 +5,7 @@ import comments from './core/reducers/CommentsReducer'
 import createSagaMiddleware from 'redux-saga';
 import { tasksSaga } from "./core/sagas/tasksSaga";
 import { commentsSaga } from "./core/sagas/commentsSaga";
+import { usersSaga } from "./core/sagas/usersSaga";
 
 
 const reducer = combineReducers({
@@ -19,3 +20,4 @@ export const store = createStore(reducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(tasksSaga)
 sagaMiddleware.run(commentsSaga)
+sagaMiddleware.run(usersSaga)

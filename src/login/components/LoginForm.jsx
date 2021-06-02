@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router'
-import { usersLoad, usersLogin, selectLoggedUser, selectLoginMessage } from '../../core/reducers/UsersReducer';
+import { usersLoadStart, usersLogin, selectLoggedUser, selectLoginMessage } from '../../core/reducers/UsersReducer';
 import { fetchUsers } from '../../core/hooks/useUsers';
 import styled from 'styled-components'
 
@@ -29,8 +29,7 @@ export const LoginForm = () => {
     }, [loggedUser])
 
     useEffect(() => {
-        fetchUsers()
-            .then(res => dispatch(usersLoad(res)))
+        dispatch(usersLoadStart())
     }, [])
 
     return (

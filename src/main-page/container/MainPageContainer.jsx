@@ -16,14 +16,19 @@ export const MainPageContainer = () => {
     const comments = useSelector(selectComments)
 
     useEffect(() => {
-        dispatch(tasksLoadByUserIdStart(user.id))
-        dispatch(tasksLoad20NewestStart())
-        dispatch(commentsLoad20NewestStart())
+        if (user) {
+            dispatch(tasksLoadByUserIdStart(user.id))
+            dispatch(tasksLoad20NewestStart())
+            dispatch(commentsLoad20NewestStart())
+        }
+        else {
+            push('/login')
+        }
     }, [])
 
     return (
         <div>
-            <div className="container">
+            {user && <div className="container">
                 <h1>{'Witaj ' + user.name}</h1>
                 <div className="row">
                     <div className="col-sm">
@@ -39,7 +44,7 @@ export const MainPageContainer = () => {
                         {<CommentsList comments={comments} />}
                     </div>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }
