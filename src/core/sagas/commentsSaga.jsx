@@ -12,7 +12,7 @@ function* fetchCommentsMainView() {
         yield put(commentsLoadTasks(tasks))
     }
     catch {
-        console.log('fail')
+        yield put(commentsLoadFailed)
     }
     try {
         const results = yield call(fetch20NewestComments);

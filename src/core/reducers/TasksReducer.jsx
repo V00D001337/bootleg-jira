@@ -2,7 +2,9 @@ const initialState = {
     tasks: [],
     usersTasks: [],
     message: '',
-    isLoading: false
+    isLoading: false,
+    sprints: [],
+    users: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -31,13 +33,46 @@ const reducer = (state = initialState, action) => {
         }
         case 'TASKS_LOAD_20_NEWEST_START': {
             return {
-                ...state, isLoading: true 
+                ...state, isLoading: true
+            }
+        }
+        case 'TASKS_LOAD_USERS': {
+            return {
+                ...state, users: action.payload.users
+            }
+        }
+        case 'TASKS_LOAD_SPRINTS': {
+            return {
+                ...state, sprints: action.payload.sprints
+            }
+        }
+        case 'TASK_DETAILS_LOAD_START': {
+            return {
+                ...state, isLoading: true
+            }
+        }
+        case 'TASK_DETAILS_LOAD_SUCCESS': {
+            const tasks = action.payload.tasks.map(t => {
+                t.userId = state.users.find(u => u.id === t.userId) || '';
+                t.sprintId = state.sprints.find(s => s.id === t.sprintId) || '';
+                return t;
+            })
+            return {
+                ...state, tasks: tasks
             }
         }
         default: return state
     }
 }
 export default reducer
+
+export const taskDetailsLoadStart = (taskId) => {
+    return ({ type: 'TASK_DETAILS_LOAD_START', payload: { taskId } })
+}
+
+export const taskDetailsLoadSuccess = (tasks) => {
+    return ({ type: 'TASK_DETAILS_LOAD_SUCCESS', payload: { tasks } })
+}
 
 export const tasksLoadStart = () => {
     return ({ type: 'TASKS_LOAD_START' })
@@ -56,11 +91,19 @@ export const tasksLoadFailed = () => {
 }
 
 export const tasksLoadByUserIdStart = (userId) => {
-    return ({type: 'TASKS_LOAD_BY_USER_ID_START', payload: {userId}})
+    return ({ type: 'TASKS_LOAD_BY_USER_ID_START', payload: { userId } })
 }
 
 export const tasksLoadByUserIdSuccess = (usersTasks) => {
     return ({ type: 'TASKS_LOAD_BY_USER_ID_SUCCESS', payload: { usersTasks } })
+}
+
+export const tasksLoadUsers = (users) => {
+    return ({ type: 'TASKS_LOAD_USERS', payload: { users } })
+}
+
+export const tasksLoadSprints = (sprints) => {
+    return ({ type: 'TASKS_LOAD_SPRINTS', payload: { sprints } })
 }
 
 export const selectTasks = (state) => state.tasks.tasks

@@ -7,7 +7,8 @@ import { MainPageContainer } from './main-page/container/MainPageContainer';
 import { NavBar } from './core/components/NavBar';
 import { KanbanView } from './kanban/components/KanbanView'
 import { UsersContainer } from './users/containers/UsersContainer'
-import {TasksContainer} from './tasks/containers/TasksContainer'
+import { TasksContainer } from './tasks/containers/TasksContainer'
+import { TaskDetails } from './tasks/components/TaskDetails';
 
 
 
@@ -27,7 +28,8 @@ function App() {
                 <Route path="/mainPage" component={MainPageContainer} />
                 <Route path="/kanban" component={KanbanView} />
                 <Route path="/users" component={UsersContainer} />
-                <Route path="/tasks" component={TasksContainer}/>
+                <Route path="/tasks/:taskId/" component={TaskDetails}/>
+                <Route path="/tasks" exact={true} component={TasksContainer} />
               </>
             </Switch>
           </div>
