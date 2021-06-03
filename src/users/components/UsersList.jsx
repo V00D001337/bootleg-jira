@@ -15,6 +15,7 @@ export const UsersList = (props) => {
                         {props.users.map(u => <tr key={u.id}>
                             <td>{u.name}</td>
                             <td>{u.email}</td>
+                            <td><button className="btn btn-dark" onClick={() => props.setSelected(u.id)}>Show Tasks</button></td>
                         </tr>)}
                     </tbody>
                 </table>

@@ -27,10 +27,12 @@ export const TaskDetails = () => {
                         <h4>Task Details</h4>
                         {<TasksList tasks={tasks} isTaskDetails={true} />}
                     </div>
-                    <div className="col-sm">
-                        <h4>Comments</h4>
-                        {<CommentsList comments={comments} isTaskDetails={true} />}
-                    </div>
+                    {comments.length > 0 &&
+                        <div className="col-sm">
+                            <h4>Comments</h4>
+                            {<CommentsList comments={comments} isTaskDetails={true} />}
+                        </div>
+                    }
                 </div>
             </div>
         </div>
