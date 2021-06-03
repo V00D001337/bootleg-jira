@@ -10,7 +10,7 @@ export const CommentsList = (props) => {
                             <th>Content</th>
                             <th>Created</th>
                             <th>Author</th>
-                            <th>Related Task</th>
+                            {!props.isTaskDetails && <th>Related Task</th>}
                         </tr>
                     </thead>
                     <tbody>
@@ -18,7 +18,7 @@ export const CommentsList = (props) => {
                             <td>{c.content}</td>
                             <td>{(new Date(c.createdAt)).toLocaleDateString()}</td>
                             <td>{c.userId.name}</td>
-                            <td>{c.taskId.title}</td>
+                            {!props.isTaskDetails && <td>{c.taskId.title}</td>}
                         </tr>)}
                     </tbody>
                 </table>

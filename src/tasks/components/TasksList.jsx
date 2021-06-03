@@ -25,7 +25,7 @@ export const TasksList = (props) => {
                             <td>{task.title}</td>
                             <td>{task.status}</td>
                             <td>{(new Date(task.createdAt)).toLocaleDateString()}</td>
-                            <td><button className="btn btn-dark" onClick={() => onGoToDetails(task.id)}>Details</button></td>
+                            {!props.isTaskDetails && <td><button className="btn btn-dark" onClick={() => onGoToDetails(task.id)}>Details</button></td>}
                         </tr>)}
                     </tbody>
                 </table>
