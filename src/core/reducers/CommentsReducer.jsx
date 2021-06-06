@@ -48,6 +48,11 @@ const reducer = (state = initialState, action) => {
                 ...state, isLoading: true
             }
         }
+        case 'ADD_COMMENT': {
+            return {
+                ...state, comments: [...state.comments, action.payload.comment]
+            }
+        }
         default: return state
     }
 }
@@ -79,6 +84,10 @@ export const commentsLoadTasks = (tasks) => {
 
 export const commentsLoadForTask = (taskId) => {
     return ({ type: 'COMMENTS_LOAD_FOR_TASK', payload: { taskId } })
+}
+
+export const addComment = (comment) => {
+    return ({ type: 'ADD_COMMENT', payload: { comment } })
 }
 
 export const selectComments = (state) => state.comments.comments

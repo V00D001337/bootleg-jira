@@ -1,8 +1,8 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 import { tasksLoadFailed, tasksLoadSuccess, tasksLoadByUserIdSuccess, taskDetailsLoadSuccess, tasksLoadUsers, tasksLoadSprints } from '../reducers/TasksReducer';
-import { fetchTasks, fetchUserTasks, fetch20NewestTasks, fetchTaskWithId } from '../hooks/useTasks'
-import { fetchUsers } from '../hooks/useUsers'
-import { fetchSprints } from '../hooks/useSprints'
+import { fetchTasks, fetchUserTasks, fetch20NewestTasks, fetchTaskWithId } from '../services/useTasks'
+import { fetchUsers } from '../services/useUsers'
+import { fetchSprints } from '../services/useSprints'
 
 function* fetchTasksResults() {
     try {

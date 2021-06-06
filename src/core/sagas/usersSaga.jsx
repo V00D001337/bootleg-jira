@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { fetchUsers } from '../hooks/useUsers'
+import { fetchUsers } from '../services/useUsers'
 import { usersLoadSuccess, usersLoadFailed } from '../reducers/UsersReducer'
 
 function* fetchUsersResults() {

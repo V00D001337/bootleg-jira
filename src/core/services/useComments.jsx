@@ -7,3 +7,14 @@ export const fetch20NewestComments = () => {
 export const fetchCommentsForTask = (taskId) => {
     return axios.get('http://localhost:8000/comments?taskId='+taskId+'&_sort=createdAt').then(res => res.data)
 }
+
+export const newComment = (comment) => {
+    debugger
+    return axios.post('http://localhost:8000/comments', {
+        id: comment.id,
+        userId: comment.userId,
+        taskId: comment.taskId,
+        createdAt: comment.createdAt,
+        content: comment.content
+    })
+}

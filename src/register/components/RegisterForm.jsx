@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
-import { newUser } from '../../core/hooks/useUsers';
+import { newUser } from '../../core/services/useUsers';
 import { usersNew, usersLoadStart } from '../../core/reducers/UsersReducer';
 import { useHistory } from 'react-router'
 import styled from 'styled-components'
