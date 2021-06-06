@@ -28,6 +28,16 @@ export const TaskDetails = () => {
             push('/login')
         }
 
+    }, [])
+
+    useEffect(() => {
+        if (loggedUser) {
+            dispatch(commentsLoadForTask(taskId))
+        }
+        else {
+            push('/login')
+        }
+
     }, [comments])
 
     const onAddComment = (data) => {

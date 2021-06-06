@@ -1,7 +1,6 @@
 import React from 'react'
 
 export const CommentsList = (props) => {
-    console.log(props.comments);
     return (
         <div className="card">
             <div className="card-body">

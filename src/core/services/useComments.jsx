@@ -9,7 +9,6 @@ export const fetchCommentsForTask = (taskId) => {
 }
 
 export const newComment = (comment) => {
-    debugger
     return axios.post('http://localhost:8000/comments', {
         id: comment.id,
         userId: comment.userId,
